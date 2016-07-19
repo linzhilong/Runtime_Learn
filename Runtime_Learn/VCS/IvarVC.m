@@ -13,7 +13,9 @@
 
 @end
 
-@interface IvarVC ()
+@interface IvarVC () {
+    CGFloat testFlt;
+}
 @property (nonatomic, assign) CGFloat myFloat;
 @end
 
@@ -153,7 +155,7 @@
                     case 'f':
                     {
                         float  value = 0;
-                        self.ivar2 = 10;
+//                        self.ivar2 = 10;
                         object_getInstanceVariable(self,name,(void*)&value);
                         NSLog(@"f:value:%f",value);
 //                        float c = object_getIvar(self, ivar);
@@ -164,7 +166,7 @@
                     case 'd':
                     {
                         double  value = 0;
-                        self.ivar2 = 10;
+//                        self.ivar2 = 10;
                         object_getInstanceVariable(self,name,(void*)&value);
                         NSLog(@"d:value:%f",value);
 //                        double c = object_getIvar(self, ivar);
@@ -186,7 +188,7 @@
             }
         }
         
-//         NSLog(@"name:%@ type:%@",ivarName,ivarTye);
+         NSLog(@"name:%@ type:%@",ivarName,ivarTye);
     }
     
     

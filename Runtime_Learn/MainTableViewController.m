@@ -21,6 +21,9 @@
     [self.mainArrays addObject:@"ForwardingVC"];
     [self.mainArrays addObject:@"IvarVC"];
     [self.mainArrays addObject:@"ClassVC"];
+    [self.mainArrays addObject:@"MethodVC"];
+    [self.mainArrays addObject:@"ProtocolVC"];
+    [self.mainArrays addObject:@"PropertyVC"];
 }
 
 - (void)didReceiveMemoryWarning {

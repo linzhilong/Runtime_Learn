@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <objc/runtime.h>
 
 #ifdef __IPHONE_7_0
 #define IS_GE_IOS7                                    ([[[[UIDevice currentDevice] systemVersion] substringToIndex:1] intValue] >= 7)

@@ -7,6 +7,7 @@
 //
 
 #import "ForwardingVC.h"
+#import <objc/runtime.h>
 
 @interface ForwardingTarget : NSObject
 
@@ -18,6 +19,14 @@
 
 - (void)forwardingTarget:(id)sender {
     NSLog(@"self:%@;id:%@", self, sender);
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    //    if ([self.forwardingTarget respondsToSelector:aSelector]) {
+    //        return self.forwardingTarget;
+    //    } else {
+    return [NSObject new];
+    //    }
 }
 
 @end
@@ -33,26 +42,48 @@
     
     
     self.forwardingTarget = [[ForwardingTarget alloc] init];
-//    return;
-    [self performSelector:@selector(forwardingTarget:) withObject:self];
+    [self performSelector:@selector(test) withObject:self];
+    [self performSelector:@selector(forwardingTarget22:) withObject:self];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    if ([self.forwardingTarget respondsToSelector:aSelector]) {
-        return self.forwardingTarget;
-    } else {
-        return [super forwardingTargetForSelector:aSelector];
+- (void)test {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
++ (BOOL)instancesRespondToSelector:(SEL)aSelector {
+    if (sel_isEqual(aSelector, NSSelectorFromString(@"test"))) {
+        return NO;
     }
+    return [super instancesRespondToSelector:aSelector];
+}
+
+- (BOOL)respondsToSelector:(SEL)aSelector {
+    if (sel_isEqual(aSelector, NSSelectorFromString(@"test"))) {
+        return NO;
+    }
+    return [super respondsToSelector:aSelector];
+}
+
+  + (BOOL)resolveInstanceMethod {
+    return YES;
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+//    if ([self.forwardingTarget respondsToSelector:aSelector]) {
+//        return self.forwardingTarget;
+//    } else {
+        return [super forwardingTargetForSelector:aSelector];
+//    }
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    [anInvocation setSelector:@selector(noForwardingTarget:)];
-    void *arg1;
-    [anInvocation getArgument:arg1 atIndex:2];
+//    [anInvocation setSelector:@selector(noForwardingTarget:)];
+//    void *arg1;
+//    [anInvocation getArgument:arg1 atIndex:2];
 //    free(&arg1);
-    [anInvocation invokeWithTarget:self];
-    return;
+//    [anInvocation invokeWithTarget:self];
+//    return;
     
     NSLog(@"anInvocation:%@", anInvocation);
     SEL aSelector = [anInvocation selector];
@@ -69,20 +100,22 @@
 }
 
 - (void)doesNotRecognizeSelector:(SEL)aSelector {
+//    [super doesNotRecognizeSelector:aSelector];
    NSLog(@"self:%@;id:%@;;_cmd:%@", self, NSStringFromSelector(aSelector), NSStringFromSelector(_cmd));
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
+//    return [NSMethodSignature signatureWithObjCTypes:"v@:@"];
     
     NSMethodSignature *signature = [self.forwardingTarget methodSignatureForSelector:aSelector];
-//    if (!signature) {
+    if (!signature) {
 //        for (id obj in self) {
 //            if ((signature = [obj methodSignatureForSelector:aSelector])) {
 //                break;
 //            }
 //        }
-//    }
+        signature = [super methodSignatureForSelector:aSelector];
+    }
     return signature;
 }
 

@@ -15,6 +15,8 @@
 		D652EFFC1D3CD8A900C91005 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D652EFF81D3CD8A900C91005 /* ViewController.m */; };
 		D652EFFF1D3CDC7300C91005 /* ClassVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D652EFFE1D3CDC7300C91005 /* ClassVC.m */; };
 		D652F0021D3CDF6100C91005 /* MethodVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D652F0011D3CDF6100C91005 /* MethodVC.m */; };
+		D652F0051D3DD21100C91005 /* ProtocolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D652F0041D3DD21100C91005 /* ProtocolVC.m */; };
+		D652F0081D3DD22200C91005 /* PropertyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D652F0071D3DD22200C91005 /* PropertyVC.m */; };
 		D6728F771D3C8A1F0072A7C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6728F761D3C8A1F0072A7C1 /* main.m */; };
 		D6728F7A1D3C8A1F0072A7C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6728F791D3C8A1F0072A7C1 /* AppDelegate.m */; };
 		D6728F801D3C8A1F0072A7C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6728F7E1D3C8A1F0072A7C1 /* Main.storyboard */; };
@@ -59,6 +61,10 @@
 		D652EFFE1D3CDC7300C91005 /* ClassVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassVC.m; sourceTree = "<group>"; };
 		D652F0001D3CDF6100C91005 /* MethodVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodVC.h; sourceTree = "<group>"; };
 		D652F0011D3CDF6100C91005 /* MethodVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodVC.m; sourceTree = "<group>"; };
+		D652F0031D3DD21100C91005 /* ProtocolVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolVC.h; sourceTree = "<group>"; };
+		D652F0041D3DD21100C91005 /* ProtocolVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolVC.m; sourceTree = "<group>"; };
+		D652F0061D3DD22200C91005 /* PropertyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyVC.h; sourceTree = "<group>"; };
+		D652F0071D3DD22200C91005 /* PropertyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertyVC.m; sourceTree = "<group>"; };
 		D6728F721D3C8A1F0072A7C1 /* Runtime_Learn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runtime_Learn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6728F761D3C8A1F0072A7C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6728F781D3C8A1F0072A7C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -130,16 +136,20 @@
 		D652EFF21D3CD8A900C91005 /* VCS */ = {
 			isa = PBXGroup;
 			children = (
+				D652EFFD1D3CDC7300C91005 /* ClassVC.h */,
+				D652EFFE1D3CDC7300C91005 /* ClassVC.m */,
 				D652EFF31D3CD8A900C91005 /* ForwardingVC.h */,
 				D652EFF41D3CD8A900C91005 /* ForwardingVC.m */,
 				D652EFF51D3CD8A900C91005 /* IvarVC.h */,
 				D652EFF61D3CD8A900C91005 /* IvarVC.m */,
-				D652EFF71D3CD8A900C91005 /* ViewController.h */,
-				D652EFF81D3CD8A900C91005 /* ViewController.m */,
-				D652EFFD1D3CDC7300C91005 /* ClassVC.h */,
-				D652EFFE1D3CDC7300C91005 /* ClassVC.m */,
 				D652F0001D3CDF6100C91005 /* MethodVC.h */,
 				D652F0011D3CDF6100C91005 /* MethodVC.m */,
+				D652F0061D3DD22200C91005 /* PropertyVC.h */,
+				D652F0071D3DD22200C91005 /* PropertyVC.m */,
+				D652F0031D3DD21100C91005 /* ProtocolVC.h */,
+				D652F0041D3DD21100C91005 /* ProtocolVC.m */,
+				D652EFF71D3CD8A900C91005 /* ViewController.h */,
+				D652EFF81D3CD8A900C91005 /* ViewController.m */,
 			);
 			path = VCS;
 			sourceTree = "<group>";
@@ -393,12 +403,14 @@
 			files = (
 				D652EFFC1D3CD8A900C91005 /* ViewController.m in Sources */,
 				D652EFFB1D3CD8A900C91005 /* IvarVC.m in Sources */,
+				D652F0051D3DD21100C91005 /* ProtocolVC.m in Sources */,
 				D6728F7A1D3C8A1F0072A7C1 /* AppDelegate.m in Sources */,
 				D652EFFF1D3CDC7300C91005 /* ClassVC.m in Sources */,
 				D652EFF91D3CD8A900C91005 /* UIViewContorller+runtime.m in Sources */,
 				D652EFE91D3C8C9C00C91005 /* MainTableViewController.m in Sources */,
 				D652EFFA1D3CD8A900C91005 /* ForwardingVC.m in Sources */,
 				D6728F771D3C8A1F0072A7C1 /* main.m in Sources */,
+				D652F0081D3DD22200C91005 /* PropertyVC.m in Sources */,
 				D652F0021D3CDF6100C91005 /* MethodVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
