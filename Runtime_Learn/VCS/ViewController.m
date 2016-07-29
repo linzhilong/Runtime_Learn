@@ -26,6 +26,10 @@
 
 @implementation ViewController
 
++ (void)initialize {
+    NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
 - (void)loadView {
     self.view = [[UIView alloc] initWithFrame:DEFAULT_APPLICATION_FRAME];
     self.view.backgroundColor = [UIColor whiteColor];
