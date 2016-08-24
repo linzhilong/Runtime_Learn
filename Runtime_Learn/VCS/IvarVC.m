@@ -16,10 +16,13 @@
 @interface IvarVC () {
     CGFloat testFlt;
 }
+@property (nonatomic, assign) float dynamicFloat;
+@property (nonatomic, assign) NSInteger dynamicInteger;
 @property (nonatomic, assign) CGFloat myFloat;
 @end
 
 @implementation IvarVC
+@dynamic dynamicFloat;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +38,23 @@
     object_setInstanceVariable(self, "_myFloat", *(float**)addr);
     NSLog(@"%f", self.myFloat);
     
-//    [self description];
+    NSLog(@"self.dynamicFloat:%f", self.dynamicFloat);
+    NSLog(@"self.dynamicFloat:%ld", (long)self.dynamicInteger);
+    
+    
+    //@dynamic dynamicFloat
+    int i;
+    char *p;
+    float tmpFlt = self.dynamicFloat;
+    p = &(tmpFlt);
+    char *tmpPtr;
+    for (i = sizeof(float)-1; i>=0; i--) {
+        tmpPtr = (p + i);
+        for (int y = sizeof(char) * 8 - 1; y>=0; y--) {
+            printf("%d",(*tmpPtr)>>y&1);
+        }
+    }
+    printf("\n");
 }
 
 -(NSString *)description {
@@ -47,6 +66,7 @@
     
     
     unsigned int  count = 0;
+//    Ivar *list  =   class_copyIvarList([[self class] superclass], &count);
     Ivar *list  =   class_copyIvarList([self class], &count);
     for (int i = 0; i < count; i++)
     {
@@ -191,12 +211,10 @@
          NSLog(@"name:%@ type:%@",ivarName,ivarTye);
     }
     
-    
-    
     free(list);
-    
     
     return strInfo;
 }
+
 
 @end

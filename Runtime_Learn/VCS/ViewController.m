@@ -21,7 +21,7 @@
 #define DEFAULT_APPLICATION_FRAME                    (CGRectMake(0, 0, APPLICATION_SCREEN_WIDTH, APPLICATION_SCREEN_HEIGHT))
 
 @interface ViewController ()
-
+@property (nonatomic, assign) float dynamicFloat;
 @end
 
 @implementation ViewController

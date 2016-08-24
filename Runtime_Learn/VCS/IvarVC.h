@@ -12,7 +12,7 @@
 
 @end
 
-@interface IvarVC : ViewController
+@interface IvarVC : ViewController 
 //@property(nonatomic)int  ivar1;
 //@property(nonatomic)float  ivar2;
 //@property(nonatomic)CGFloat  ivar3;
